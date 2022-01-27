@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     try{
         const user = await User.findOne(
             {
-                userName: req.body.user_name
+                username: req.body.username
             }
         );
 
@@ -37,10 +37,8 @@ router.post('/login', async (req, res) => {
             process.env.PASS_SEC
         );
 
-
         const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
-
-        const inputPassword = req.body.password;
+        const inputPassword    = req.body.password;
 
         originalPassword !== inputPassword && res.status(401).json("Wrong Password");
 
