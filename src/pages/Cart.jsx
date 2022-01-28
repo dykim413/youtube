@@ -177,8 +177,10 @@ const Cart = () => {
                 });
 
                 navigate("/success", {
-                    stripeData: res.data,
-                    products: cart,
+                    state : {
+                        stripeData: res.data,
+                        cart,
+                    }
                  });
             } catch {}
         };
