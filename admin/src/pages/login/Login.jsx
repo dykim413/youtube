@@ -8,9 +8,9 @@ const Login = () => {
     const dispatch                  = useDispatch();
 
     const handleClick = useCallback((e) => {
-        e.preventDefault();
+        console.log("username : ", username);
         login(dispatch, { username, password });
-    }, [dispatch]);
+    }, [dispatch, username, password]);
 
     return (
         <div
